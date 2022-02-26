@@ -62,7 +62,7 @@ router.put('/:id', (req, res) => {
     }
   )
   .then(dbTagData => {
-    if(!dbTagData){
+    if(!dbTagData || dbTagData[0]===0){
       res.status(400).json({ error : 'No tag found'});
       return;
     }
@@ -76,6 +76,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   // delete on tag by its `id` value
+
 });
 
 module.exports = router;
